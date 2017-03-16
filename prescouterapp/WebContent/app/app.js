@@ -1,3 +1,7 @@
+/*
+ * Application js file for creating 'prescouterApp' module and dependencies for module
+ * 
+ * */
 define([ 'config', 'searchPathCtrl', 'searchPathService' ],
 
 function(config, searchPathCtrl, searchPathService) {

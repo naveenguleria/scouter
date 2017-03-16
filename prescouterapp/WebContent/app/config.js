@@ -1,4 +1,8 @@
-define([], function() {
+/*
+ * Config file for routing
+ * 
+ * */
+define(['angular-route', 'angular-resource'], function($routeProvider, $locationProvider) {
 	'use strict';
 
 	function config($routeProvider, $locationProvider) {
