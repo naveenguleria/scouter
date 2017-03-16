@@ -1,4 +1,7 @@
-/*Main js file to be loaded which specifies dependencies*/
+/*
+ * Main js file to be loaded which specifies dependencies
+ * 
+ * */
 require.config({
 
 	baseUrl : '/prescouterapp/',
