@@ -2,7 +2,7 @@
  * Config file for routing
  * 
  * */
-define(['angular-route', 'angular-resource'], function($routeProvider, $locationProvider) {
+define([], function() {
 	'use strict';
 
 	function config($routeProvider, $locationProvider) {
