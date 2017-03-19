@@ -1,5 +1,5 @@
 /*
- * Config file for routing
+ * Config file for routing but not used as of now
  * 
  * */
 define([], function() {

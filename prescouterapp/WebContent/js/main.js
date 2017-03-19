@@ -11,11 +11,13 @@ require.config({
 		'angular' : 'lib/angular.min',
 		'angular-route' : 'lib/angular-route.min',
 		'angular-resource' : 'lib/angular-resource.min',
+		'angular-animate' : 'lib/angular-animate.min',
 		'angular-filter' : 'lib/angular-filter.min',
 		'searchPathCtrl' : 'app/searchPath/searchPathCtrl',
 		'searchPathService' : 'app/searchPath/searchPathService',
 		'appFilters' : 'app/searchPath/filters/custom-filter',
 		'config' : 'app/config',
+		'searchPathUtils' : 'app/searchPath/utils/searchPathUtils',
 		'app' : 'app/app'
 			
 
@@ -28,6 +30,10 @@ require.config({
 		'angular-route' : {
 			deps : [ 'angular' ],
 			exports : 'ngRoute'
+		},
+		'angular-animate' : {
+			deps : [ 'angular' ],
+			exports : 'ngAnimate'
 		},
 		'angular-resource' : {
 			deps : [ 'angular' ],

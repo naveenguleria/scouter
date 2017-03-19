@@ -36,6 +36,11 @@
 
 
 				<div class="col-md-10 col-md-offset-1 search-area">
+					<div class="col-md-10 col-md-offset-1 "
+						ng-if="showError" >
+						<div class="col-md-7 col-md-offset-2 alert alert-danger alert-dismissible text-center"
+							ng-bind-html="infoMessage"></div>
+					</div>
 					<div class="col-md-5 col-md-offset-1">
 						<div class="form-group">
 							<label for="exampleInputEmail1">From</label> <select
@@ -86,11 +91,11 @@
 				</div>
 			</div>
 
-			<div class="row " ng-if="showResults">
+			<div class="row" ng-if="showResults">
 				<div class="col-md-10 col-md-offset-1 search-area">
-					<div class="col-md-5 col-md-offset-1">
-						Showing results for : <b>{{optionSelected}}</b> route(s)
-
+					<div class="col-md-6 col-md-offset-3">
+						Showing <b style="color:#2196F3">{{optionSelected}}</b> route(s) from <b style="color:#8BC34A">{{departure}}</b> to <b style="color:#8BC34A">{{arrival}}</b>
+						
 						<table class="my-tab table table-striped table-bordered">
 
 							<tr ng-repeat="key in shortestPathToDestination"

@@ -8,6 +8,17 @@ define([ 'app' ], function(app) {
 	
 	var appFilters = angular.module('appFilters', []);
 
+	/*
+	 * @author: Naveen Guleria
+	 * @name : filter 
+	 * @methodOf: appFilters.filter 
+	 * @description : Method used to return total time in minutes to format 18h15 
+	 * 18h15 => where 18 = No of hours and 15 = No of minutes
+	 * 
+	 * @param: {int: timeinMinutes}
+	 * @return: {String: hoursAndMinutes } 18h15 format
+	 * 
+	 */
 	appFilters.filter('journeyDuration', function() {
 
 		return function(timeinMinutes) {
