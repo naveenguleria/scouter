@@ -12,19 +12,19 @@ function(config, searchPathCtrl, searchPathService, searchPathUtils) {
 
 	app.config(config);
 
-	//Create controller
+	// Create controller
 	app.controller('searchPathCtrl', searchPathCtrl);
 	// DI for Controller
 	searchPathCtrl.$inject = [ '$scope', '$location', '$http', '$sce' ];
 
 	//Create service
 	app.factory('searchPathService', searchPathService);
-	//DI for service
+	// DI for service
 	searchPathService.$inject = [ '$scope', '$location', '$http' ];
 
-	//Create utility factory
+	// Create utility factory
 	app.factory('searchPathUtils', searchPathUtils);
-	//DI for utils
+	// DI for utils
 	searchPathUtils.$inject = [ '$scope', '$location', '$http' ];
 
 });

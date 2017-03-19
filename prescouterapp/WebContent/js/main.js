@@ -1,7 +1,6 @@
 /*
  * Main js file to be loaded which specifies dependencies
  * 
- * 
  * */
 require.config({
 

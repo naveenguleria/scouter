@@ -33,6 +33,7 @@ define(
 				 * @param {Object: searchDeals}
 				 * @return: {Object : myMap} 
 				 * 
+				 * 
 				 */
 				createMap : function(searchDeals) {
 

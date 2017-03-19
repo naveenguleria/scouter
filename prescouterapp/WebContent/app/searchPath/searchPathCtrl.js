@@ -13,6 +13,7 @@ define(
 			 * @param {Object: $location}
 			 * @param {Object: $http}
 			 * @param {Object: $sce}
+			 * 
 			 * @return: {Object : searchPathCtrl} 
 			 * 
 			 */

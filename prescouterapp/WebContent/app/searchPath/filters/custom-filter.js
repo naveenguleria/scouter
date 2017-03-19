@@ -1,5 +1,4 @@
 /*
- * 
  * Custom filters defined for application
  * 
  */
