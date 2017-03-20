@@ -18,7 +18,7 @@
 
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<h4 id="header">Trip Scouter</h4>
+				<h4 id="header"><b>Trip Scouter</b></h4>
 
 				<h5>
 					Select a <i>Departure city</i> and <i>Arrival city</i> to plan your
@@ -44,7 +44,7 @@
 					<div class="col-md-5 col-md-offset-1">
 						<div class="form-group">
 							<label for="exampleInputEmail1">From</label> <select
-								ng-model="departure" class="form-control">
+								ng-model="departure" class="form-control" req>
 								<option ng-selected="true" value="">---Departure
 									City---</option>
 								<option
@@ -68,17 +68,17 @@
 
 						<div class="radio">
 							<label> <input type="radio" name="rdoOptionsRadios"
-								ng-model="optionsRadios" id="optionsRadios" value="COST"">
+								ng-model="optionsRadios" id="optionsRadios" value="COST" ng-click='searchPaths(departure,arrival,optionsRadios)'>
 								Cheapest
 							</label> &nbsp;&nbsp; <label> <input type="radio"
 								name="rdoOptionsRadios" ng-model="optionsRadios"
-								id="optionsRadios" value="TIME"> Fastest
+								id="optionsRadios" value="TIME" ng-click='searchPaths(departure,arrival,optionsRadios)'> Fastest
 							</label> &nbsp;&nbsp; <label> <input type="radio"
 								name="rdoOptionsRadios" ng-model="optionsRadios"
-								id="optionsRadios" value="All"> All (36)
+								id="optionsRadios" value="All" ng-click='searchPaths(departure,arrival,optionsRadios)'> All (36)
 							</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-							<button type="button" class="btn btn-default">Reset</button>
+							<button type="reset" class="btn btn-default">Reset</button>
 							&nbsp;
 							<button type="button" class="btn btn-primary "
 								ng-click='searchPaths(departure,arrival,optionsRadios)'>Search</button>
@@ -94,8 +94,10 @@
 			<div class="row" ng-if="showResults">
 				<div class="col-md-10 col-md-offset-1 search-area">
 					<div class="col-md-6 col-md-offset-3">
-						Showing <b style="color:#2196F3">{{optionSelected}}</b> route(s) from <b style="color:#8BC34A">{{departure}}</b> to <b style="color:#8BC34A">{{arrival}}</b>
-						
+						Showing <b class="font-color-blue">{{optionSelected}}</b> route(s) from <b class="font-color-green">{{departure}}</b> to <b class="font-color-green">{{arrival}}</b>
+						<div
+							class="alert alert-info alert-dismissible text-center" ng-if="optionsRadios=='All'">No
+							results to show !!!</div>
 						<table class="my-tab table table-striped table-bordered">
 
 							<tr ng-repeat="key in shortestPathToDestination"
@@ -105,10 +107,10 @@
 								<td
 									ng-init="calCostTotal(shortestRootInfo.data.cost);calDurationTotal(shortestRootInfo.data.time)">
 
-									<span>{{key.details.smallest}} </span> <span> >
-										{{key.destination}} </span><span class="pull-right">
-										{{shortestRootInfo.data.cost}} EUR</span><br /> <span> > <b>{{shortestRootInfo.data.transport}}</b>
-										{{shortestRootInfo.data.reference}} <i>for</i>
+									<span class="pull-left"><span>{{key.details.smallest}} </span> <span> &gt;
+										{{key.destination}} </span></span><span class="pull-right">
+										{{shortestRootInfo.data.cost}} EUR</span><br /> <span class="pull-left">  <b>{{shortestRootInfo.data.transport}}</b>
+										<i>{{shortestRootInfo.data.reference}}</i> for
 										{{shortestRootInfo.data.duration}}
 								</span>
 
@@ -116,8 +118,8 @@
 
 							</tr>
 							<tr ng-if="totalCost > 0">
-								<td><b>Total</b>&nbsp;&nbsp;&nbsp;<b>{{duration |
-										journeyDuration}}</b>&nbsp;&nbsp;&nbsp;<b>{{totalCost}} EUR</b></td>
+								<td><b class="pull-left">Total</b> <b class="text-center">{{duration |
+										journeyDuration}}</b> <b class="pull-right">{{totalCost}} EUR</b></td>
 							</tr>
 
 						</table>
