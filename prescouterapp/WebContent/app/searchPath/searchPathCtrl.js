@@ -51,6 +51,8 @@ define(
 					$scope.duration = 0;
 					$scope.infoMessage= "";
 					$scope.optionSelected = "";
+					$scope.departureSelected = departure;
+					$scope.arrivalSelected = arrival;
 					
 					if ((departure == undefined || departure == "") && (arrival == undefined || arrival == "")) {
 						$scope.showError = true;

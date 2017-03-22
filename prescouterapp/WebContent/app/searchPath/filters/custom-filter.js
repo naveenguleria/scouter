@@ -4,7 +4,7 @@
  */
 define([ 'app' ], function(app) {
 	'use strict';
-	
+
 	var appFilters = angular.module('appFilters', []);
 
 	/*
@@ -21,13 +21,12 @@ define([ 'app' ], function(app) {
 	appFilters.filter('journeyDuration', function() {
 
 		return function(timeinMinutes) {
-			
+
 			if (timeinMinutes != undefined) {
 				var hours = Math.floor(timeinMinutes / 60);
-			    var minutes = (timeinMinutes % 60);
-				return hours + "h" +minutes;
-			}
-			else{
+				var minutes = (timeinMinutes % 60);
+				return hours + "h" + ((minutes > 0) ? minutes : "");
+			} else {
 				return 0;
 			}
 

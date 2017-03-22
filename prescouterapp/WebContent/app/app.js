@@ -18,7 +18,7 @@ function(config, searchPathCtrl, searchPathService, searchPathUtils) {
 	searchPathCtrl.$inject = [ '$scope', '$location', '$http', '$sce' ];
 
 	//Create service
-	app.factory('searchPathService', searchPathService);
+	app.service('searchPathService', searchPathService);
 	// DI for service
 	searchPathService.$inject = [ '$scope', '$location', '$http' ];
 
