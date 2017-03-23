@@ -1,5 +1,5 @@
 /*
- *  Config file for routing but not used as of now
+ *  Config file for routing 
  * 
  * */
 define([], function() {
@@ -9,9 +9,6 @@ define([], function() {
 		
 		$routeProvider.when('/', {
 			templateUrl : 'templates/home.html',
-			controller : 'searchPathCtrl'
-		}).when('/search', {
-			templateUrl : 'templates/search.html',
 			controller : 'searchPathCtrl'
 		}).otherwise({
 			redirectTo : '/'

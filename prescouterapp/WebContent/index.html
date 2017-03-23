@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" >
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Prescouter Travel App</title>
@@ -18,7 +18,9 @@
 
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<h4 id="header"><b>Trip Scouter</b></h4>
+				<h4 id="header">
+					<b>Trip Scouter</b>
+				</h4>
 
 				<h5>
 					Select a <i>Departure city</i> and <i>Arrival city</i> to plan your
@@ -30,109 +32,12 @@
 
 			</div>
 		</div>
-		<form>
-			<div class="row ">
 
-
-
-				<div class="col-md-10 col-md-offset-1 search-area">
-					<div class="col-md-10 col-md-offset-1 "
-						ng-if="showError" >
-						<div class="col-md-7 col-md-offset-2 alert alert-danger alert-dismissible text-center"
-							ng-bind-html="infoMessage"></div>
-					</div>
-					<div class="col-md-5 col-md-offset-1">
-						<div class="form-group">
-							<label>From</label> <select
-								ng-model="departure" class="form-control" req>
-								<option ng-selected="true" value="">---Departure
-									City---</option>
-								<option
-									ng-repeat="info in travelData.deals | unique: 'departure' | orderBy: 'departure'"
-									value="{{ info.departure }}">{{ info.departure }}</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-5">
-						<div class="form-group">
-							<label>To</label> <select
-								ng-model="arrival" class="form-control"><option
-									ng-selected="true" value="">---Arrival City---</option>
-								<option ng-repeat="info in travelData.deals | unique: 'arrival' | orderBy: 'arrival'"
-									value="{{ info.arrival }}">{{ info.arrival }}</option>
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-10 col-md-offset-3">
-
-						<div class="radio">
-							<label> <input type="radio" name="rdoOptionsRadios"
-								ng-model="optionsRadios" id="optionsRadios" value="COST" ng-click='searchPaths(departure,arrival,optionsRadios)'>
-								Cheapest
-							</label> &nbsp;&nbsp; <label> <input type="radio"
-								name="rdoOptionsRadios" ng-model="optionsRadios"
-								id="optionsRadios" value="TIME" ng-click='searchPaths(departure,arrival,optionsRadios)'> Fastest
-							</label> &nbsp;&nbsp; <label> <input type="radio"
-								name="rdoOptionsRadios" ng-model="optionsRadios"
-								id="optionsRadios" value="All" ng-click='searchPaths(departure,arrival,optionsRadios)'> All (36)
-							</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-							<button type="reset" class="btn btn-default">Reset</button>
-							&nbsp;
-							<button type="button" class="btn btn-primary "
-								ng-click='searchPaths(departure,arrival,optionsRadios)'>Search</button>
-
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-			<div class="row" ng-if="showResults">
-				<div class="col-md-10 col-md-offset-1 search-area">
-					<div class="col-md-6 col-md-offset-3">
-						Showing <b class="font-color-blue">{{optionSelected}}</b> route(s) from <b class="font-color-green">{{departureSelected}}</b> to <b class="font-color-green">{{arrivalSelected}}</b>
-						<div
-							class="alert alert-info alert-dismissible text-center" ng-if="optionsRadios=='All'">No
-							results to show !!!</div>
-						<table class="my-tab table table-striped table-bordered">
-
-							<tr ng-repeat="key in shortestPathToDestination"
-								ng-if="$index > 0"
-								ng-init='shortestRootInfo=getShortestParameterInfo(optionsRadios, key.details.obj)'>
-
-								<td
-									ng-init="calCostTotal(shortestRootInfo.data.cost);calDurationTotal(shortestRootInfo.data.time)">
-
-									<span class="pull-left"><span>{{key.details.smallest}} </span> <span> &gt;
-										{{key.destination}} </span></span><span class="pull-right">
-										{{shortestRootInfo.data.cost}} EUR</span><br /> <span class="pull-left">  <b>{{shortestRootInfo.data.transport}}</b>
-										<i>{{shortestRootInfo.data.reference}}</i> for
-										{{shortestRootInfo.data.duration}}
-								</span>
-
-								</td>
-
-							</tr>
-							<tr ng-if="totalCost > 0">
-								<td><b class="pull-left">Total</b> <b class="text-center">{{duration |
-										journeyDuration}}</b> <b class="pull-right">{{totalCost}} EUR</b></td>
-							</tr>
-
-						</table>
-					</div>
-				</div>
-
-
-			</div>
-
-		</form>
-
+		<ng-view></ng-view>
 
 	</div>
+
+
 
 	<script data-main="js/main.js" src="lib/require.min.js"></script>
 

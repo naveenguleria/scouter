@@ -26,5 +26,6 @@ function(config, searchPathCtrl, searchPathService, searchPathUtils) {
 	app.factory('searchPathUtils', searchPathUtils);
 	// DI for utils
 	searchPathUtils.$inject = [ '$scope', '$location', '$http' ];
-
+	
+	return app;
 });
